@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements GetApiCall.AsyncR
         View.OnClickListener, PostApiCall.AsyncResponse{
 
     private Button loginBtn;
+    private String token = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,13 @@ public class MainActivity extends AppCompatActivity implements GetApiCall.AsyncR
 
     @Override
     public void finalResponse(String token) {
-        System.out.println(token);
+        this.token = token;
+        goToNextView();
+    }
+
+    public void goToNextView(){
+        if(!this.token.isEmpty()){
+
+        }
     }
 }

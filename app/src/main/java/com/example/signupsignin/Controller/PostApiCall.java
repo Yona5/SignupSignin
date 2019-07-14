@@ -35,19 +35,15 @@ public class PostApiCall extends AsyncTask<Void, Void, JSONObject> {
             url = new URL(urlStr);
             urlConn = (HttpURLConnection) url.openConnection();
             urlConn.setRequestMethod("POST");
-            urlConn.setRequestProperty("Content-Type", "application/json; utf-8");
-
-            //set response format type
+            urlConn.setRequestProperty("Content-Type", "application/json");
             urlConn.setRequestProperty("Accept", "application/json");
-            urlConn.setDoInput(true);
+            //set response format type
             urlConn.setDoOutput(true);
+            String details = "{ \"email\" : \"eve.holt@reqres.in\", \"password\" : \"cityslicka\" }";
 
-            String details = "{\"email\" : \"eve.holt@reqres.in\", \"password\" : \"cityslicka\"}";
-            System.out.println(details);
             try(OutputStream os = urlConn.getOutputStream()) {
                 os.write(details.getBytes("UTF-8"));
             }
-            System.out.println(urlConn.getResponseCode() + urlConn.getResponseMessage());
 
             bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream(), "utf-8"));
             StringBuffer stringBuffer = new StringBuffer();
