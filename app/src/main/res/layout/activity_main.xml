@@ -72,34 +72,4 @@
         app:layout_constraintVertical_bias="1.0"
         tools:text="Welcome" />
 
-    <TextView
-        android:id="@+id/noAccntText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="513dp"
-        android:layout_marginBottom="199dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Don't have an account?" />
-
-    <TextView
-        android:id="@+id/signupLink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
-        android:layout_marginBottom="172dp"
-        android:contextClickable="true"
-        android:elegantTextHeight="false"
-        android:text="Signup"
-        android:textColor="#0D47A1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

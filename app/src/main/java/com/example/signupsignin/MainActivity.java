@@ -1,21 +1,21 @@
 package com.example.signupsignin;
 
-
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.signupsignin.Controller.GetApiCall;
+import android.widget.EditText;
+
 import com.example.signupsignin.Controller.PostApiCall;
-import com.example.signupsignin.Model.User;
 
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity implements GetApiCall.AsyncResponse,
-        View.OnClickListener, PostApiCall.AsyncResponse{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, PostApiCall.AsyncResponse{
 
     private Button loginBtn;
     private String token = "";
+    private EditText email;
+    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +28,9 @@ public class MainActivity extends AppCompatActivity implements GetApiCall.AsyncR
     public void onClick(View view){
         switch (view.getId()) {
             case (R.id.loginBtn):
-                GetApiCall getApiCall = new GetApiCall(this);
-                getApiCall.execute();
-
-                PostApiCall postApiCall = new PostApiCall(this);
-                postApiCall.execute();
+                checkFields();
                 break;
         }
-    }
-
-    @Override
-    public void finalResponse(ArrayList<User> users) {
-        System.out.println(users.size());
     }
 
     @Override
@@ -48,9 +39,26 @@ public class MainActivity extends AppCompatActivity implements GetApiCall.AsyncR
         goToNextView();
     }
 
+    public void checkFields(){
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        if(email.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
+            new AlertDialog.Builder(this)
+                    .setTitle("Empty email or password")
+                    .setMessage("Please enter your email and password")
+                    .setNegativeButton(android.R.string.no, null)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }else{
+            PostApiCall postApiCall = new PostApiCall(this);
+            postApiCall.execute();
+        }
+    }
+    
     public void goToNextView(){
         if(!this.token.isEmpty()){
-
+            Intent intent = new Intent(this, UsersListActivity.class);
+            this.startActivity(intent);
         }
     }
 }
