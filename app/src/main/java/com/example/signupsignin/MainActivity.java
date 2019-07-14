@@ -1,5 +1,6 @@
 package com.example.signupsignin;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -7,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.example.signupsignin.Controller.PostApiCall;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, PostApiCall.AsyncResponse{
-
+    private ProgressBar spinner;
     private Button loginBtn;
     private String token = "";
     private EditText email;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void finalResponse(String token) {
         this.token = token;
+        this.spinner.setVisibility(View.GONE);
         goToNextView();
     }
 
@@ -52,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             PostApiCall postApiCall = new PostApiCall(this);
             postApiCall.execute();
+//            ProgressDialog.show(this, "Signing in", "loading");
+            this.spinner = findViewById(R.id.progressBar);
+            this.spinner.setVisibility(View.VISIBLE);
+
         }
     }
     
