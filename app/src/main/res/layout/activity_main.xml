@@ -12,13 +12,12 @@
         android:id="@+id/email"
         android:layout_width="331dp"
         android:layout_height="46dp"
-        android:layout_marginTop="254dp"
-        android:layout_marginBottom="431dp"
+        android:layout_marginTop="216dp"
         android:ems="10"
+        android:imeOptions="actionDone"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,13 +25,11 @@
         android:id="@+id/password"
         android:layout_width="327dp"
         android:layout_height="45dp"
-        android:layout_marginTop="343dp"
-        android:layout_marginBottom="343dp"
+        android:layout_marginTop="304dp"
         android:ems="10"
+        android:imeOptions="actionDone"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,42 +37,20 @@
         android:id="@+id/loginBtn"
         android:layout_width="178dp"
         android:layout_height="47dp"
-        android:layout_marginTop="448dp"
-        android:layout_marginBottom="236dp"
+        android:layout_marginTop="400dp"
         android:background="#01579B"
         android:fontFamily="sans-serif"
         android:text="Login"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="275dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="142dp"
-        android:layout_marginBottom="535dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center_horizontal"
-        android:includeFontPadding="false"
-        android:textAlignment="center"
-        android:textColor="#0D47A1"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:text="Welcome" />
-
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+        style="@android:style/Widget.Holo.Light.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"
@@ -84,5 +59,19 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="235dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="108dp"
+        android:text="Welcome"
+        android:textAlignment="center"
+        android:textColor="#114283"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
